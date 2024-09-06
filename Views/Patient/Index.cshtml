@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Patient>
+@{
+}
+<p align="right">
+	@*<button type="button" class="btn btn-primary">Add Employee</button> *@
+	<a asp-action="Create" class="btn btn-outline-success">Add Patient</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.PatientId)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.RegistrationNo)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.PatientName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DOB)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Gender)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Address)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.PhoneNo)
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.PatientId)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.RegistrationNo)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PatientName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DOB)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Gender)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Address)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PhoneNo)
+				</td>
+				<td>
+					@Html.ActionLink("Edit", "Edit", new { id = item.PatientId }) |
+					@Html.ActionLink("Info", "Details", new { id = item.PatientId })
+					@Html.ActionLink("Delete", "Delete", new { id = item.PatientId })
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
